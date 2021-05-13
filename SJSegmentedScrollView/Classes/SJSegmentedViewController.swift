@@ -70,6 +70,20 @@ import UIKit
     }
     
     /**
+     *
+     *  Capture ScrollViewDelegate
+     *
+     *
+     */
+    open var scrollViewDelegate: UIScrollViewDelegate? {
+        didSet {
+            segmentedScrollView.delegate = scrollViewDelegate
+        }
+    }
+    
+    
+    
+    /**
      *  Set height for segment view.
      *
      *  By default the height is 40.0
