@@ -83,6 +83,13 @@ import UIKit
     
     
     
+    open var autoScrollEnabled: Bool?  = false{
+        didSet {
+            segmentedScrollView.autoScrollEnabled = autoScrollEnabled
+        }
+    }
+    
+    
     /**
      *  Set height for segment view.
      *
