@@ -364,7 +364,7 @@ class SJSegmentedScrollView: UIScrollView {
                           change: CGFloat,
                           oldPosition: CGPoint) {
         
-        if autoScrollEnabled ?? true {
+       
             let offset = (headerViewHeight! - headerViewOffsetHeight!)
             if contentOffset.y < offset {
                 
@@ -374,10 +374,12 @@ class SJSegmentedScrollView: UIScrollView {
                     yPos = yPos > offset ? offset : yPos
                     let updatedPos = CGPoint(x: contentOffset.x, y: yPos)
                     setContentOffset(self, point: updatedPos)
-                    setContentOffset(scrollView, point: oldPosition)
+                    if autoScrollEnabled ?? true {
+                        setContentOffset(scrollView, point: oldPosition)
+                    }
                 }
             }
-        }
+        
     }
 
 	override func observeValue(forKeyPath keyPath: String?,
